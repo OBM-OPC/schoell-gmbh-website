@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schöll GmbH – Schuhgeschäft seit über 50 Jahren</title>
+    <meta name="description" content="Schöll GmbH – Ihr Schuhgeschäft in Schweinfurt und Bad Kissingen. Über 50 Jahre Tradition, Qualität und persönliche Beratung.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Ticker -->
+    <div class="ticker" id="headerTicker">
+        <div class="ticker-content">
+            <span class="ticker-item">50 Jahre Schöll – Danke für Ihr Vertrauen!</span>
+            <span class="ticker-separator">•</span>
+            <span class="ticker-item">Verkaufsoffener Sonntag am 23.03. – 13-18 Uhr</span>
+            <span class="ticker-separator">•</span>
+            <span class="ticker-item">Neue Frühjahrskollektion eingetroffen</span>
+            <span class="ticker-separator">•</span>
+            <span class="ticker-item">Gratis Lieferung ab 50€ Bestellwert</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Schöll</span>
+                <span class="logo-subtitle">GmbH</span>
+            </a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Navigation öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="nav" id="mainNav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="aktuelles.html" class="nav-link">Aktuelles</a></li>
+                    <li><a href="ware-trends.html" class="nav-link">Ware & Trends</a></li>
+                    <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
+                    <li><a href="filialen.html" class="nav-link">Filialen</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="heroSection">
+        <div class="hero-background" id="heroBackground"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="container">
+                <span class="hero-label">Seit 1974</span>
+                <h1 class="hero-title">Schöll GmbH</h1>
+                <p class="hero-subtitle">Ihr Schuhgeschäft für die ganze Familie.<br>Qualität, Tradition und persönliche Beratung in Schweinfurt und Bad Kissingen.</p>
+                <div class="hero-buttons">
+                    <a href="ware-trends.html" class="btn btn-primary">Neue Kollektion</a>
+                    <a href="filialen.html" class="btn btn-secondary">Unsere Filialen</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-season-indicator" id="seasonIndicator">
+            <span class="season-dot active" data-season="spring"></span>
+            <span class="season-dot" data-season="autumn"></span>
+        </div>
+    </section>
+
+    <!-- Teaser Aktuelles -->
+    <section class="teaser-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Aktuelles</h2>
+                <a href="aktuelles.html" class="section-link">Alle News →</a>
+            </div>
+            <div class="teaser-grid">
+                <article class="teaser-card">
+                    <div class="teaser-image">
+                        <div class="image-placeholder" style="background: linear-gradient(135deg, #f5f0e8 0%, #e8e0d5 100%);">
+                            <span>🎉</span>
+                        </div>
+                    </div>
+                    <div class="teaser-content">
+                        <time class="teaser-date">15. März 2026</time>
+                        <h3 class="teaser-title">50 Jahre Schöll – Wir feiern!</h3>
+                        <p class="teaser-text">Seit über 50 Jahren sind wir für Sie da. Ein halbes Jahrhundert voller Tradition, Qualität und vertrauensvoller Kundenbeziehungen.</p>
+                        <a href="aktuelles.html" class="teaser-link">Mehr erfahren →</a>
+                    </div>
+                </article>
+                <article class="teaser-card">
+                    <div class="teaser-image">
+                        <div class="image-placeholder" style="background: linear-gradient(135deg, #c41e3a 0%, #a01830 100%);">
+                            <span>🏷️</span>
+                        </div>
+                    </div>
+                    <div class="teaser-content">
+                        <time class="teaser-date">12. März 2026</time>
+                        <h3 class="teaser-title">Verkaufsoffener Sonntag</h3>
+                        <p class="teaser-text">Am Sonntag, den 23. März haben beide Filialen von 13-18 Uhr für Sie geöffnet. Tolle Angebote warten auf Sie!</p>
+                        <a href="aktuelles.html" class="teaser-link">Mehr erfahren →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaser Ware & Trends -->
+    <section class="teaser-section bg-warm">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Ware & Trends</h2>
+                <a href="ware-trends.html" class="section-link">Alle Kollektionen →</a>
+            </div>
+            <div class="teaser-grid">
+                <article class="teaser-card">
+                    <div class="teaser-image">
+                        <div class="image-placeholder" style="background: linear-gradient(135deg, #d4e4d4 0%, #b8d4b8 100%);">
+                            <span>👟</span>
+                        </div>
+                    </div>
+                    <div class="teaser-content">
+                        <span class="teaser-tag">Frühjahr 2026</span>
+                        <h3 class="teaser-title">Neue Frühjahrskollektion</h3>
+                        <p class="teaser-text">Frische Styles für die neue Saison. Entdecken Sie die neuesten Trends von Top-Marken für Damen, Herren und Kinder.</p>
+                        <a href="ware-trends.html" class="teaser-link">Kollektion entdecken →</a>
+                    </div>
+                </article>
+                <article class="teaser-card">
+                    <div class="teaser-image">
+                        <div class="image-placeholder" style="background: linear-gradient(135deg, #e8d8c8 0%, #d4c4b0 100%);">
+                            <span>🎒</span>
+                        </div>
+                    </div>
+                    <div class="teaser-content">
+                        <span class="teaser-tag">Accessoires</span>
+                        <h3 class="teaser-title">Taschen & mehr</h3>
+                        <p class="teaser-text">Perfekt kombiniert: Passende Taschen, Gürtel und Accessoires zu Ihrem neuen Schuhstyle.</p>
+                        <a href="ware-trends.html" class="teaser-link">Accessoires entdecken →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">👞</div>
+                    <h3 class="feature-title">Große Auswahl</h3>
+                    <p class="feature-text">Über 5.000 Modelle in beiden Filialen. Für jeden Anlass das passende Paar.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">Persönliche Beratung</h3>
+                    <p class="feature-text">Unser erfahrenes Team berät Sie kompetent und findet den perfekten Schuh für Sie.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⭐</div>
+                    <h3 class="feature-title">TOP-Marken</h3>
+                    <p class="feature-text">Vielfältige Auswahl namhafter Hersteller – von klassisch bis trendig.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">50+ Jahre Erfahrung</h3>
+                    <p class="feature-text">Seit 1974 stehen wir für Qualität. Ein Familienunternehmen mit Tradition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Besuchen Sie uns!</h2>
+                <p class="cta-text">Wir freuen uns auf Ihren Besuch in Schweinfurt oder Bad Kissingen. Lassen Sie sich von unserem Sortiment begeistern.</p>
+                <a href="filialen.html" class="btn btn-primary btn-large">Unsere Filialen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="index.html" class="footer-logo">
+                        <span class="footer-logo-text">Schöll</span>
+                        <span class="footer-logo-subtitle">GmbH</span>
+                    </a>
+                    <p class="footer-text">Ihr Schuhgeschäft für die ganze Familie seit 1974.</p>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aktuelles.html">Aktuelles</a></li>
+                        <li><a href="ware-trends.html">Ware & Trends</a></li>
+                        <li><a href="ueber-uns.html">Über uns</a></li>
+                        <li><a href="filialen.html">Filialen</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Kontakt</h4>
+                    <p class="footer-contact">
+                        <strong>Schweinfurt:</strong><br>
+                        Marktstraße 15<br>
+                        97421 Schweinfurt<br>
+                        Tel: 09721 / 12345
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Öffnungszeiten</h4>
+                    <p class="footer-hours">
+                        <strong>Mo–Fr:</strong> 9:00 – 18:00<br>
+                        <strong>Sa:</strong> 9:00 – 16:00
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Schöll GmbH. Alle Rechte vorbehalten.</p>
+                <p class="footer-meta">Made with ❤️ in Unterfranken</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1446,6 +1446,42 @@ li {
     color: var(--gray-500);
 }
 
+/* Brands Section */
+.brands-section {
+    padding: var(--space-24) 0;
+    background: var(--white);
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+}
+
+.brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-8) var(--space-6);
+    background: var(--warm-white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-200);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.brand-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.brand-logo {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--schoell-black);
+    letter-spacing: 0.05em;
+}
+
 /* ========================================
    LOCATIONS / FILIALEN
    ======================================== */

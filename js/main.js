@@ -20,19 +20,14 @@
             'Schweinfurt & Bad Kissingen – immer für Sie da'
         ],
         
-        // Seasonal hero images (placeholder for actual images)
-        SEASONS: {
-            spring: {
-                name: 'Frühling',
-                months: [3, 4, 5, 6, 7, 8], // March - August
-                bg: 'linear-gradient(135deg, rgba(212, 228, 212, 0.3) 0%, rgba(26, 26, 26, 1) 100%)'
-            },
-            autumn: {
-                name: 'Herbst / Winter',
-                months: [9, 10, 11, 12, 1, 2], // September - February
-                bg: 'linear-gradient(135deg, rgba(232, 216, 200, 0.3) 0%, rgba(26, 26, 26, 1) 100%)'
-            }
-        },
+        // Hero slider images
+        HERO_SLIDES: [
+            { image: 'images/slider1.jpg', alt: 'Schöll GmbH Filiale' },
+            { image: 'images/slider2.jpg', alt: 'Schöll Team bei der Arbeit' }
+        ],
+        
+        // Auto-slide interval (ms)
+        SLIDER_INTERVAL: 5000,
         
         // Mobile breakpoint
         MOBILE_BREAKPOINT: 768
@@ -214,99 +209,99 @@
     };
 
     // ========================================
-    // SEASONAL HERO
+    // HERO SLIDER
     // ========================================
     
-    const SeasonalHero = {
-        hero: null,
-        background: null,
-        indicator: null,
-        currentSeason: null,
+    const HeroSlider = {
+        slider: null,
+        slides: [],
         dots: [],
+        currentSlide: 0,
+        interval: null,
         
         init: function() {
-            this.hero = document.getElementById('heroSection');
-            this.background = document.getElementById('heroBackground');
-            this.indicator = document.getElementById('seasonIndicator');
+            this.slider = document.getElementById('heroSlider');
+            this.dotsContainer = document.getElementById('heroSliderDots');
             
-            if (!this.hero || !this.background) return;
+            if (!this.slider) return;
             
-            // Determine current season
-            this.currentSeason = this.getCurrentSeason();
+            this.slides = this.slider.querySelectorAll('.hero-slide');
             
-            // Apply season
-            this.applySeason(this.currentSeason);
+            if (this.slides.length === 0) return;
             
-            // Setup indicator
-            if (this.indicator) {
-                this.setupIndicator();
+            // Setup dots
+            if (this.dotsContainer) {
+                this.setupDots();
             }
             
-            // Add transition class after initial load
-            setTimeout(() => {
-                this.background.style.transition = 'opacity 500ms ease';
-            }, 100);
+            // Start auto-slide
+            this.startAutoSlide();
+            
+            // Pause on hover
+            this.slider.addEventListener('mouseenter', () => {
+                this.stopAutoSlide();
+            });
+            
+            this.slider.addEventListener('mouseleave', () => {
+                this.startAutoSlide();
+            });
         },
         
-        getCurrentSeason: function() {
-            const month = utils.getCurrentMonth();
+        setupDots: function() {
+            this.dots = this.dotsContainer.querySelectorAll('.slider-dot');
             
-            if (CONFIG.SEASONS.spring.months.includes(month)) {
-                return 'spring';
-            }
-            return 'autumn';
-        },
-        
-        applySeason: function(season) {
-            this.background.setAttribute('data-season', season);
-            this.currentSeason = season;
-            
-            // Update indicator dots
-            this.updateIndicatorDots();
-        },
-        
-        setupIndicator: function() {
-            this.dots = this.indicator.querySelectorAll('.season-dot');
-            
-            this.dots.forEach(dot => {
-                dot.addEventListener('click', (e) => {
-                    const season = e.target.dataset.season;
-                    if (season && season !== this.currentSeason) {
-                        this.applySeason(season);
-                    }
+            this.dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    this.goToSlide(index);
                 });
                 
-                // Add keyboard support
+                // Keyboard support
                 dot.setAttribute('tabindex', '0');
                 dot.setAttribute('role', 'button');
-                dot.setAttribute('aria-label', `Saison wechseln zu ${CONFIG.SEASONS[dot.dataset.season]?.name || 'Frühling'}`);
+                dot.setAttribute('aria-label', `Zu Slide ${index + 1} wechseln`);
                 
                 dot.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
-                        const season = dot.dataset.season;
-                        if (season && season !== this.currentSeason) {
-                            this.applySeason(season);
-                        }
+                        this.goToSlide(index);
                     }
                 });
             });
+        },
+        
+        goToSlide: function(index) {
+            if (index === this.currentSlide) return;
             
-            this.updateIndicatorDots();
+            // Remove active class from current
+            this.slides[this.currentSlide].classList.remove('active');
+            if (this.dots[this.currentSlide]) {
+                this.dots[this.currentSlide].classList.remove('active');
+            }
+            
+            // Add active class to new
+            this.currentSlide = index;
+            this.slides[this.currentSlide].classList.add('active');
+            if (this.dots[this.currentSlide]) {
+                this.dots[this.currentSlide].classList.add('active');
+            }
         },
         
-        updateIndicatorDots: function() {
-            this.dots.forEach(dot => {
-                const isActive = dot.dataset.season === this.currentSeason;
-                dot.classList.toggle('active', isActive);
-                dot.setAttribute('aria-current', isActive ? 'true' : 'false');
-            });
+        nextSlide: function() {
+            const next = (this.currentSlide + 1) % this.slides.length;
+            this.goToSlide(next);
         },
         
-        // Public method to manually set season
-        setSeason: function(season) {
-            if (CONFIG.SEASONS[season]) {
-                this.applySeason(season);
+        startAutoSlide: function() {
+            this.stopAutoSlide();
+            this.interval = setInterval(() => {
+                this.nextSlide();
+            }, CONFIG.SLIDER_INTERVAL);
+        },
+        
+        stopAutoSlide: function() {
+            if (this.interval) {
+                clearInterval(this.interval);
+                this.interval = null;
             }
         }
     };
@@ -428,16 +423,16 @@
     // ========================================
     // INITIALIZE
     // ========================================
-    
+
     function init() {
         // Initialize all components
         Ticker.init();
         MobileNav.init();
-        SeasonalHero.init();
+        HeroSlider.init();
         SmoothScroll.init();
         LazyLoader.init();
         Accessibility.init();
-        
+
         // Console welcome
         if (console && console.log) {
             console.log('%cSchöll GmbH', 'font-size: 24px; font-weight: bold; color: #C41E3A;');
@@ -457,7 +452,7 @@
         config: CONFIG,
         ticker: Ticker,
         nav: MobileNav,
-        hero: SeasonalHero,
+        hero: HeroSlider,
         utils: utils
     };
     

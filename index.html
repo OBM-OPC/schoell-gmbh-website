@@ -28,8 +28,7 @@
     <header class="header">
         <div class="container">
             <a href="index.html" class="logo">
-                <span class="logo-text">Schöll</span>
-                <span class="logo-subtitle">GmbH</span>
+                <img src="images/logo.png" alt="Schöll GmbH Logo" class="logo-img">
             </a>
             
             <button class="nav-toggle" id="navToggle" aria-label="Navigation öffnen">
@@ -52,7 +51,14 @@
 
     <!-- Hero Section -->
     <section class="hero" id="heroSection">
-        <div class="hero-background" id="heroBackground"></div>
+        <div class="hero-slider" id="heroSlider">
+            <div class="hero-slide active">
+                <img src="images/slider1.jpg" alt="Schöll GmbH Filiale" class="hero-slide-img">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slider2.jpg" alt="Schöll Team bei der Arbeit" class="hero-slide-img">
+            </div>
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="container">
@@ -65,9 +71,9 @@
                 </div>
             </div>
         </div>
-        <div class="hero-season-indicator" id="seasonIndicator">
-            <span class="season-dot active" data-season="spring"></span>
-            <span class="season-dot" data-season="autumn"></span>
+        <div class="hero-slider-dots" id="heroSliderDots">
+            <span class="slider-dot active" data-slide="0"></span>
+            <span class="slider-dot" data-slide="1"></span>
         </div>
     </section>
 

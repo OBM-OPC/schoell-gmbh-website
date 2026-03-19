@@ -2004,6 +2004,10 @@ li {
     color: var(--white);
 }
 
+.reels-section .section-label {
+    color: var(--schoell-red);
+}
+
 .reels-section .section-title {
     color: var(--white);
 }
